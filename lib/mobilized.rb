@@ -26,7 +26,7 @@ module Mobilized
     private
     
     def determine_mobile
-      session[:is_mobile] = !(request.user_agent.to_s.downcase =~ Regexp.new(MOBILE_USER_AGENTS)).nil? && !is_device('ipad')
+      session[:is_mobile] = !(request.user_agent.to_s.downcase =~ Regexp.new(MOBILE_USER_AGENTS)).nil? && !is_device?('ipad')
     end
   end
   
