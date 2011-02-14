@@ -9,8 +9,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Jon Buda"]
   s.email       = ["jon@onedesigncompany.com"]
   s.homepage    = "http://onedesigncompany.com"
-  s.summary     = %q{A simple way to determine if a visitor is on a mobile device.}
-  s.description = %q{A simple way to determine if a visitor is on a mobile device.}
+  s.summary     = %q{A simple way for Rails 3 to determine if a visitor is on a mobile device.}
+  s.description = %q{A simple way for Rails 3 to determine if a visitor is on a mobile device.}
 
   s.rubyforge_project = "mobilized"
 
@@ -20,4 +20,6 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   
   s.add_dependency('rails', '~> 3.0.0')
+  
+  s.add_development_dependency('rspec', '>= 2.0.0')
 end
