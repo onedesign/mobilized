@@ -12,24 +12,21 @@ module Mobilized
       before_filter :is_mobile?
     end
   end
-  
-  module InstanceMethods
-    def is_mobile?
-      session[:is_mobile].nil? ? determine_mobile : session[:is_mobile]
-    end
-    
-    # e.g. is_device?('ipad')
-    def is_device?(type)
-      request.user_agent.to_s.downcase.include?(type.to_s.downcase)
-    end
-    
-    private
-    
-    def determine_mobile
-      session[:is_mobile] = !(request.user_agent.to_s.downcase =~ Regexp.new(MOBILE_USER_AGENTS)).nil? && !is_device?('ipad')
-    end
+
+  def is_mobile?
+    session[:is_mobile].nil? ? determine_mobile : session[:is_mobile]
   end
-  
+
+  # e.g. is_device?('ipad')
+  def is_device?(type)
+    request.user_agent.to_s.downcase.include?(type.to_s.downcase)
+  end
+
+  private
+  def determine_mobile
+    session[:is_mobile] = !(request.user_agent.to_s.downcase =~ Regexp.new(MOBILE_USER_AGENTS)).nil? && !is_device?('ipad')
+  end
+
   included do 
     helper_method :is_mobile?, :is_device?
   end    
